@@ -863,3 +863,40 @@ const textoConcatenado = produtosQueTerminamComSete
                             }, '')
 
 console.log(textoConcatenado)
+
+
+
+
+// operadores rest x spread
+
+// o rest possibilita a criação de uma função dinamica que posso receber vários parâmetros e tratar como um array
+function somar(...numeros){ // rest
+    return numeros.reduce((anterior, atual) => anterior + atual, 0)
+}
+
+console.log(somar(1,2,3,4,5,6))
+
+
+const valores = [1,2,3]
+
+// O spread vai espalhar todo o conteúdo de um array dentro de outro
+const valoresAdicionados = [4,5,6, ...valores] // spread
+
+console.log(valoresAdicionados)
+
+
+
+// operador ternário e operador coalescência nula
+
+const Idade = 17
+
+console.log(Idade >= 18 ? "Maior de idade" : "Menor de idade") //operador ternário
+
+
+// 0, null, undefined => falso
+let usuario = null
+
+// o operador ?? verifica o conteúdo da variável à esquerda, se for verdadeiro, utiliza ele, caso contrário utiliza o conteúdo à direita
+let Nome = usuario ?? "Visitante"
+
+console.log(Nome)
