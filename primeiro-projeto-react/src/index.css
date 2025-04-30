@@ -70,3 +70,31 @@ button:focus-visible {
 .texto-vermelho{
   color: red;
 }
+
+h1{
+  text-align: center;
+  width: 100%;
+}
+
+.container{
+  width: 100%;
+}
+
+#root{
+  width: 100%;
+}
+
+.descricao-pessoal{
+  padding-left: 100px;
+}
+
+.hobbies{
+  background-color: #535bf2;
+  display: inline-block;
+  padding: 5px;
+}
+
+.skills{
+  color: red;
+  text-decoration: underline;
+}
