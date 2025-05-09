@@ -1,0 +1,10 @@
+.titulo{
+    color: rgb(185, 140, 140);
+    text-decoration: underline;
+}
+
+.container{
+    border: 1px solid rgb(233, 34, 67);
+    padding: 10px;
+    margin: 10px;
+}
