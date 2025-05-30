@@ -1,3 +1,19 @@
 .container{
     border: 1px solid blue;
 }
+
+.padrao{
+
+}
+
+.info{
+    background-color: #007ace;
+}
+
+.sucesso{
+    background-color: #00ee00;
+}
+
+.perigo{
+    background-color: #7a0000;
+}
