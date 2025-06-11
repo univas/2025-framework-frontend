@@ -1,0 +1,15 @@
+main{
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid #CECECE;
+    padding: 18px;
+    border-radius: 8px;
+}
+h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+table{
+    margin-top: 50px;
+}

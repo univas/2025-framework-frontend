@@ -22,7 +22,7 @@ function App() {
       <Botao tipo="sucesso" funcao={clique}>Botão de sucesso</Botao>
       <Botao tipo="perigo" funcao={clique}>Botão de perigo</Botao>
       
-      <Alerta estilo="perigo">Operação realizada</Alerta>
+      <Alerta estilo="info">Operação realizada</Alerta>
     </>
   )
 }
