@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import './estilos.css'
 import z from 'zod'
+import { Link, useNavigate } from 'react-router'
+import { UsuarioContext } from './Context/UsuarioContext'
 
 const ContatoSchema = z.object({
   nome: z.string().min(3, 'Nome muito curto!'),
@@ -11,7 +13,14 @@ const ContatoSchema = z.object({
   tipo: z.string()
 })
 
-function Form({mudaPagina}) {
+function Form() {
+  const {usuario} = useContext(UsuarioContext)
+
+  const navigate = useNavigate()
+
+  if(usuario == ""){
+    navigate("/login")  
+  }
 
   const [contato, setContato] = useState({
     nome: '', telefone: '', email: '', tipo: ''
@@ -29,6 +38,7 @@ function Form({mudaPagina}) {
         .then(res => {
           if(res.status == 201){
             alert("Contato salvo com sucesso!")
+            navigate("/")
           }
         })
     }catch(err){
@@ -71,16 +81,13 @@ function Form({mudaPagina}) {
       tipo: event.target.value
     })
   }
-
-  const lista = () => {
-    mudaPagina("APP")
-  }
-
-
   return (
     <main>
-      <h1>Cadastro de contatos</h1>
-      <a href="#" onClick={lista} className='btn btn-primary'>Lista de contatos</a>
+      <div className='text-center'>
+        <h1>Cadastro de contatos</h1>
+        <small>{usuario}</small>
+      </div>
+      <Link to={"/"} className='btn btn-primary'>Lista de contatos</Link>
 
       <form action="" method='POST' onSubmit={handleSubmitForm}>
         {erro != "" && <p className='alert alert-danger'>{erro}</p>}

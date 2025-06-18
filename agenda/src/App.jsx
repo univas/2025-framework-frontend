@@ -1,11 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import './estilos.css'
+import { Link, useNavigate } from 'react-router'
+import { UsuarioContext } from './Context/UsuarioContext'
 
-function App({mudaPagina}) {
+function App() {
   const [contatos, setContatos] = useState([])
   const [termoPesquisa, setTermoPesquisa] = useState("")
+  const {usuario, setUsuario} = useContext(UsuarioContext)
+  const navigate = useNavigate()
+
+  if(usuario == ""){
+    navigate("/login")  
+  }
 
   useEffect(() => {
     axios.get("http://localhost:3000/contatos")
@@ -35,14 +43,14 @@ function App({mudaPagina}) {
     setTermoPesquisa(event.target.value)
   }
 
-  const formulario = () => {
-    mudaPagina("FORM")
-  }
-
   return (
+    
     <main>
-      <h1>Agenda de contatos</h1>
-      <a href="#" onClick={formulario} className='btn btn-primary'>Cadastrar</a>
+      <div className='text-center'>
+        <h1>Agenda de contatos </h1>
+        <small>{usuario}</small>
+      </div>
+      <Link to={"/cadastro"} className='btn btn-primary'>Novo Cadastro</Link>
 
       <input type="text" className='form-control' placeholder='Digite para pesquisar' value={termoPesquisa} onChange={handleTermoPesquisa} />
 
