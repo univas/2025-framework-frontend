@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import './estilos.css'
@@ -11,7 +11,7 @@ const ContatoSchema = z.object({
   tipo: z.string()
 })
 
-function Form() {
+function Form({mudaPagina}) {
 
   const [contato, setContato] = useState({
     nome: '', telefone: '', email: '', tipo: ''
@@ -71,9 +71,16 @@ function Form() {
       tipo: event.target.value
     })
   }
+
+  const lista = () => {
+    mudaPagina("APP")
+  }
+
+
   return (
     <main>
       <h1>Cadastro de contatos</h1>
+      <a href="#" onClick={lista} className='btn btn-primary'>Lista de contatos</a>
 
       <form action="" method='POST' onSubmit={handleSubmitForm}>
         {erro != "" && <p className='alert alert-danger'>{erro}</p>}
